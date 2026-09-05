@@ -1,0 +1,37 @@
+[project]
+name = "prodml"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies =  [
+    "scikit-learn",
+    "pandas",
+    "pyarrow",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pydantic-settings",
+    "onnxruntime>=1.29.0",
+    "skl2onnx>=1.20.0",
+    "mlflow",
+]
+ [project.optional-dependencies]
+ dev=["pytest","pytest-cov","ruff","black","mypy","httpx","pre-commit"]
+[project-scripts]
+prodml-train= "prodml.train:main"
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+]
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "--cov=src/prodml --cov-fail-under=70"
+testpaths = ["tests"]

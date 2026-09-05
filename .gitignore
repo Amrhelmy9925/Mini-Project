@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+
+*.parquet
+models/*.onnx
+models/*.joblib
+
+.pytest_cache/
+.ruff_cache/
+archive.zip
+data_cleaning.ipynb
+notebook/
+# Virtual environments
+.venv
+mini-p1.md
+.vscode/
