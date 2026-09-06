@@ -1,0 +1,22 @@
+# Run from repo root: docker compose -f docker/docker-compose.yml up --build
+services:
+  api:
+    build:
+      context: ..           
+      dockerfile: docker/Dockerfile
+    image: prodml-api:0.1.0
+    ports:
+      - "8000:8000"          # laptop:8000 -> box:8000 (EXPOSE in Dockerfile)
+    volumes:
+      - ../models:/app/models  
+    environment:
+      - MODEL_PATH=models/baseline.onnx
+      - VECTORIZER_PATH=models/dv.joblib
+      - MODELS_PATH=models/models.joblib
+      - API_PORT=8000
+    restart: unless-stopped  
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3

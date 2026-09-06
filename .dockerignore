@@ -1,0 +1,11 @@
+tests/
+.env
+__pycache__
+data/
+notebook/
+*.ipynb
+yellow_tripdata*.parquet
+archive.zip 
+.pytest_cache/
+.git/
+.venv/
