@@ -41,7 +41,7 @@ artifact.
 
 | Image | Size |
 |-------|------|
-| Single-stage (`docker/Dockerfile.single`, temp file, deleted after measure) | <!-- TODO(you): fill, e.g. 2.31GB --> |
+| Single-stage (`docker/Dockerfile.single`, temp file, deleted after measure) | 1.43 GB (`prodml-api:single`) |
 | Multi-stage (`docker/Dockerfile`) | 1.49 GB (`prodml-api:multi`) |
 
 Docker Hub image URL: <!-- TODO(you): paste, e.g. https://hub.docker.com/r/<you>/prodml-api -->
